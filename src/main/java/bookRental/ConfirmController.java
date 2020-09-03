@@ -20,12 +20,20 @@ import java.util.List;
   @PostMapping("/confirms")
   public Long confirmInsert(@RequestBody Confirm confirm) {
 
+   System.out.println("=====ConfirmController.java===========================================================");
    System.out.println("confirm.getBookingId :" + confirm.getBookingId());
    System.out.println("confirm.getConfirmId :" + confirm.getConfirmId());
    System.out.println("confirm.getConfirmStatus :" + confirm.getConfirmStatus());
+   System.out.println("=====ConfirmController.java===========================================================");
    confirm.setConfirmStatus("cofirm succeeded");
 
    Long confirmId =  confirmService.confirmInsert(confirm);
+
+   System.out.println("=====2222222222   confirm id 세팅해주고 나서 ===========================================================");
+   System.out.println("confirm.getBookingId :" + confirm.getBookingId());
+   System.out.println("confirm.getConfirmId :" + confirm.getConfirmId());
+   System.out.println("confirm.getConfirmStatus :" + confirm.getConfirmStatus());
+   System.out.println("=====2222222222   confirm id 세팅해주고 나서 ===========================================================");
 
    if (confirmId > 0) {
     return confirmId;     // 성공시 생성된 ID를 실패시 0 리턴
